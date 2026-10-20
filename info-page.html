@@ -1,0 +1,532 @@
+<html>
+<head>
+    <title>Tech Titans</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <h1>YieldLogic</h1>
+            <nav>
+                    <div><a href="crops.html"><i class="fas fa-house"></i>Home</a></div>
+                    <div class="dropdown">
+                        <a href="#"><i class="fas fa-search"></i>Search</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="info-page.html">Yield Calculator</a></li>
+                            <li><a href="CustomerSupportBot.html">Yield Bot</a></li>
+                            <li><a href="tips.html">Tips & Tricks</a></li>
+                            <li><a href="why-we-ask.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                <div>
+                <a href="about.html"><i class="fas fa-info-circle"></i>About Us</a>
+                </div>
+                <div>
+                    <a href="login.html" class="nav-login"><i class="fas fa-user"></i>Login</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <div class="form-header">
+                <h2><i class="fas fa-seedling" style="color: #004225; margin-right: 12px;"></i>Yield Calculator</h2>
+                <p>Enter your farm details below to get accurate yield and revenue estimates.</p>
+            </div>
+
+            <form id="yieldForm" class="yield-form">
+
+                <div class="form-group">
+                    <label for="crops"><i class="fas fa-leaf" style="margin-right: 8px;"></i>What crops are you growing?</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-leaf"></i>
+                        <input type="text" id="crops" name="crops" placeholder="e.g., Maize, Wheat, Soybeans" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="hectares">
+                        <i class="fas fa-arrows-alt-h" style="margin-right: 8px;"></i>How many hectares are you planting?
+                        <button type="button" class="tooltip-trigger"
+                                data-tooltip="A hectare is 100m × 100m (10,000 m²). If you don't know your exact size, an estimate is fine — you can update it later."
+                                data-learn-more="why-we-ask.html#hectare">
+                            <i class="fas fa-circle-info"></i>
+                        </button>
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        <input type="number" id="hectares" name="hectares" placeholder="e.g., 25" required min="0" step="any">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="farmLocation">
+                        <i class="fas fa-map-pin" style="margin-right: 8px;"></i>Where is your farm located?
+                        <button type="button" class="tooltip-trigger"
+                                data-tooltip="Location helps us adjust for your climate and rainfall patterns. Two farms just 50 km apart can have very different seasons."
+                                data-learn-more="why-we-ask.html#location">
+                            <i class="fas fa-circle-info"></i>
+                        </button>
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map-pin"></i>
+                        <input type="text" id="farmLocation" name="farmLocation" placeholder="e.g., Mpumalanga, South Africa" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="soilType">
+                        <i class="fas fa-mountain" style="margin-right: 8px;"></i>What is your soil type?
+                        <button type="button" class="tooltip-trigger"
+                                data-tooltip="Soil affects how well water and nutrients stay available to your crops. Loamy soil gives the best yield potential."
+                                data-learn-more="why-we-ask.html#soil-type">
+                            <i class="fas fa-circle-info"></i>
+                        </button>
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-mountain"></i>
+                        <select id="soilType" name="soilType" required>
+                            <option value="">Select soil type...</option>
+                            <option value="clay">Clay</option>
+                            <option value="clay-loam">Clay Loam</option>
+                            <option value="sandy">Sandy</option>
+                            <option value="sandy-loam">Sandy Loam</option>
+                            <option value="loamy">Loamy</option>
+                            <option value="silty">Silty</option>
+                            <option value="peaty">Peaty</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sellingPrice"><i class="fas fa-coin" style="margin-right: 8px;"></i>Expected selling price per ton (Rands)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-coin"></i>
+                        <input type="number" id="sellingPrice" name="sellingPrice" placeholder="e.g., 4200" step="any" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="prodCosts"><i class="fas fa-calculator" style="margin-right: 8px;"></i>Production costs per hectare (Rands)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-calculator"></i>
+                        <input type="number" id="prodCosts" name="prodCosts" placeholder="e.g., 2500" step="any" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastSeasonYield"><i class="fas fa-history" style="margin-right: 8px;"></i>Last season's yield (kg per hectare)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-history"></i>
+                        <input type="number" id="lastSeasonYield" name="lastSeasonYield" placeholder="e.g., 7500" step="any" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="irrigation">
+                        <i class="fas fa-water" style="margin-right: 8px;"></i>Are you using irrigation?
+                        <button type="button" class="tooltip-trigger"
+                                data-tooltip="Irrigation improves water security and consistency. Drip gives the biggest boost (+25%), followed by sprinkler (+18%) and flood (+10%)."
+                                data-learn-more="why-we-ask.html#irrigation">
+                            <i class="fas fa-circle-info"></i>
+                        </button>
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-water"></i>
+                        <select id="irrigation" name="irrigation" required>
+                            <option value="">Select...</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" id="irrigationTypeGroup" style="display: none;">
+                    <label for="irrigationType"><i class="fas fa-tint" style="margin-right: 8px;"></i>If yes, what type?</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-tint"></i>
+                        <input type="text" id="irrigationType" name="irrigationType" placeholder="e.g., Drip, Sprinkler, Flood">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pests">
+                        <i class="fas fa-bug" style="margin-right: 8px;"></i>Have you noticed any pests or diseases?
+                        <button type="button" class="tooltip-trigger"
+                                data-tooltip="Even mild pest pressure reduces yield. Tell us what you've seen — or 'None' if everything looks healthy."
+                                data-learn-more="why-we-ask.html#pests">
+                            <i class="fas fa-circle-info"></i>
+                        </button>
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-bug"></i>
+                        <input type="text" id="pests" name="pests" placeholder="e.g., Aphids, Locusts, None">
+                    </div>
+                </div>
+               
+                <button type="submit" class="pill-btn submit-btn">
+                    <i class="fas fa-calculator" style="margin-right: 10px;"></i>Calculate Yield
+                </button>
+            </form>
+   
+            <div id="result" class="result-container" style="display: none;">
+                <h3><i class="fas fa-chart-bar" style="margin-right: 10px;"></i>Your Results</h3>
+                <div class="result-grid">
+                    <div class="result-card">
+                        <i class="fas fa-seedling"></i>
+                        <h4>Estimated Yield</h4>
+                        <p class="result-value" id="yieldResult">0 kg</p>
+                    </div>
+                    <div class="result-card">
+                        <i class="fas fa-coin"></i>
+                        <h4>Estimated Revenue</h4>
+                        <p class="result-value" id="revenueResult">R0.00</p>
+                    </div>
+                    <div class="result-card">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h4>Estimated Profit</h4>
+                        <p class="result-value" id="profitResult">R0.00</p>
+                    </div>
+                </div>
+                <button class="pill-btn reset-btn" onclick="resetForm()">
+                    <i class="fas fa-redo" style="margin-right: 10px;"></i>Start Over
+                </button>
+            </div>
+        </section>
+
+          <div id="chatWidget">
+            <div id="chatWindow">
+                <div class="chat-header">🌱 YieldLogic Assistant <button id="chatNew" title="Start over">↺</button></div>
+                    <div id="chatBox"></div>
+                        <div class="chat-input-area">
+                            <input id="chatInput" placeholder="Type your farm details or a question…">
+                        <button id="chatSend">Send</button>
+                    </div>
+                    </div>
+                <button id="chatToggle" aria-label="Open chat">💬</button>
+            </div>
+    </main>
+    <footer>
+        &copy; 2026 Tech Titans. All rights reserved.
+    </footer>
+
+
+    <script>
+    //  YIELD ESTIMATION MODEL
+    // Baseline yields (kg per hectare) by crop — used only as fallback
+    // when the farmer hasn't provided their own last-season yield.
+    const CROP_BASE_YIELDS = {
+        // Grains
+        'maize': 7000, 'corn': 7000,
+        'wheat': 4500,
+        'barley': 4000,
+        'sorghum': 3500,
+        'rye': 3500,
+        // Oilseeds & legumes
+        'soybean': 3000, 'soybeans': 3000,
+        'sunflower': 2000,
+        'groundnut': 2000, 'groundnuts': 2000,
+        'peanut': 2000, 'peanuts': 2000,
+        'bean': 2500, 'beans': 2500,
+        // Vegetables
+        'potato': 25000, 'potatoes': 25000,
+        'tomato': 45000, 'tomatoes': 45000,
+        'onion': 30000, 'onions': 30000,
+        'carrot': 30000, 'carrots': 30000,
+        'cabbage': 40000,
+        'lettuce': 25000,
+        'spinach': 15000,
+        // Cash crops
+        'cotton': 2000,
+        'sugarcane': 70000, 'sugar cane': 70000,
+        // Fruits
+        'grape': 15000, 'grapes': 15000,
+        'citrus': 25000,
+        'apple': 30000, 'apples': 30000,
+        'banana': 30000, 'bananas': 30000,
+        'avocado': 10000, 'avocados': 10000,
+        // Forage
+        'lucerne': 12000, 'alfalfa': 12000,
+        'clover': 8000
+    };
+
+    /**
+     * Get the base yield per hectare.
+     * Priority: farmer's last yield > crop lookup > generic default.
+     */
+    function getCropBaseYield(cropText, lastSeasonYield) {
+        if (lastSeasonYield && lastSeasonYield > 0) return lastSeasonYield;
+
+        const key = (cropText || '').toLowerCase().trim();
+        if (CROP_BASE_YIELDS[key]) return CROP_BASE_YIELDS[key];
+
+        // Partial match: "yellow maize" → "maize"
+        for (const crop in CROP_BASE_YIELDS) {
+            if (key.includes(crop)) return CROP_BASE_YIELDS[crop];
+        }
+        return 5000; // Generic fallback
+    }
+
+    /**
+     * Irrigation multiplier based on type.
+     * Drip > Sprinkler > Flood > Rain-fed
+     */
+    function getIrrigationMultiplier(irrigation, irrigationType) {
+        if (irrigation !== 'yes') return 1.00;
+
+        const type = (irrigationType || '').toLowerCase();
+        if (type.includes('drip'))                        return 1.25;
+        if (type.includes('sprinkler') || type.includes('pivot')) return 1.18;
+        if (type.includes('flood') || type.includes('furrow'))    return 1.10;
+        return 1.15; // "Yes" but type left blank
+    }
+
+    /**
+     * Soil quality multiplier.
+     */
+    function getSoilMultiplier(soilType) {
+        const map = {
+            'loamy':      1.15,
+            'clay-loam':  1.10,
+            'silty':      1.05,
+            'clay':       1.00,
+            'sandy-loam': 0.95,
+            'peaty':      0.90,
+            'sandy':      0.85
+        };
+        return map[soilType] || 1.00;
+    }
+
+    /**
+     * Pest impact multiplier — parsed from free-text.
+     */
+    function getPestMultiplier(pestsText) {
+        const text = (pestsText || '').toLowerCase().trim();
+        if (!text || ['none','no','n/a','nothing','nil'].includes(text)) return 1.00;
+
+        if (/(severe|major|infestation|locust|armyworm|many)/.test(text))       return 0.70;
+        if (/(moderate|some|several)/.test(text))                               return 0.82;
+        if (/(mild|minor|few|slight|small)/.test(text))                         return 0.92;
+        return 0.85; // Mentioned but severity unknown
+    }
+
+    // ============================================================
+    //  DROPDOWN (unchanged)
+    // ============================================================
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdownLink = document.querySelector(".dropdown > a");
+        const menu = document.querySelector(".dropdown-menu");
+
+        if (dropdownLink && menu) {
+            dropdownLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                menu.style.display = menu.style.display === "block" ? "none" : "block";
+            });
+
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest(".dropdown")) {
+                    menu.style.display = "none";
+                }
+            });
+        }
+    });
+
+    // ============================================================
+    //  IRRIGATION TOGGLE (unchanged)
+    // ============================================================
+    document.getElementById('irrigation').addEventListener('change', function () {
+        const group = document.getElementById('irrigationTypeGroup');
+        group.style.display = this.value === 'yes' ? 'block' : 'none';
+    });
+
+    // ============================================================
+    //  FORM SUBMIT — Yield Calculation
+    // ============================================================
+    document.getElementById('yieldForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // === 1. Read inputs ===
+        const crops            = document.getElementById('crops').value.trim();
+        const hectares         = parseFloat(document.getElementById('hectares').value);
+        const farmLocation     = document.getElementById('farmLocation').value.trim();
+        const soilType         = document.getElementById('soilType').value;
+        const sellingPrice     = parseFloat(document.getElementById('sellingPrice').value);
+        const prodCosts        = parseFloat(document.getElementById('prodCosts').value);
+        const lastSeasonYield  = parseFloat(document.getElementById('lastSeasonYield').value);
+        const irrigation       = document.getElementById('irrigation').value;
+        const irrigationType   = irrigation === 'yes'
+            ? document.getElementById('irrigationType').value.trim()
+            : '';
+        const pests            = document.getElementById('pests').value.trim();
+
+        // === 2. Validate numerics ===
+        if (isNaN(hectares) || hectares <= 0 ||
+            isNaN(sellingPrice) || sellingPrice <= 0 ||
+            isNaN(prodCosts) || prodCosts < 0 ||
+            isNaN(lastSeasonYield) || lastSeasonYield < 0) {
+            alert('Please enter valid positive numbers in all numeric fields.');
+            return;
+        }
+
+        // === 3. Base yield (kg/ha) ===
+        const baseYieldPerHa = getCropBaseYield(crops, lastSeasonYield);
+
+        // === 4. Multipliers ===
+        const irrigationFactor = getIrrigationMultiplier(irrigation, irrigationType);
+        const soilFactor       = getSoilMultiplier(soilType);
+        const pestFactor       = getPestMultiplier(pests);
+
+        // === 5. Adjusted yield ===
+        const adjustedYieldPerHa = baseYieldPerHa * irrigationFactor * soilFactor * pestFactor;
+        const estimatedYieldKg   = adjustedYieldPerHa * hectares;
+        const estimatedYieldTons = estimatedYieldKg / 1000;
+
+        // === 6. Revenue (price is per TON) ===
+        const estimatedRevenue = estimatedYieldTons * sellingPrice;
+
+        // === 7. Costs ===
+        const totalProductionCost = prodCosts * hectares;
+
+        // === 8. Profit ===
+        const estimatedProfit = estimatedRevenue - totalProductionCost;
+
+        // === 9. Display ===
+        const fmtCurrency = n =>
+            'R' + n.toLocaleString('en-ZA', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+
+        document.getElementById('yieldResult').textContent =
+            estimatedYieldKg.toLocaleString('en-ZA', { maximumFractionDigits: 0 }) + ' kg';
+        document.getElementById('revenueResult').textContent = fmtCurrency(estimatedRevenue);
+        document.getElementById('profitResult').textContent  = fmtCurrency(estimatedProfit);
+
+        // Colour profit red if negative
+        const profitEl = document.getElementById('profitResult');
+        profitEl.style.color = estimatedProfit < 0 ? '#c62828' : '#004225';
+
+        // Log the breakdown (handy for debugging or showing a breakdown panel later)
+        console.log('--- Yield Estimation Breakdown ---', {
+            crop: crops,
+            baseYieldPerHa_kg: baseYieldPerHa,
+            irrigationFactor,
+            soilFactor,
+            pestFactor,
+            adjustedYieldPerHa_kg: adjustedYieldPerHa.toFixed(1),
+            hectares,
+            estimatedYieldTons: estimatedYieldTons.toFixed(2),
+            sellingPrice_perTon: sellingPrice,
+            estimatedRevenue: estimatedRevenue.toFixed(2),
+            totalProductionCost: totalProductionCost.toFixed(2),
+            estimatedProfit: estimatedProfit.toFixed(2)
+        });
+
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // ============================================================
+    //  RESET (unchanged)
+    // ============================================================
+    function resetForm() {
+        document.getElementById('yieldForm').reset();
+        document.getElementById('result').style.display = 'none';
+        document.getElementById('irrigationTypeGroup').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    (function () {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'custom-tooltip';
+        tooltip.innerHTML = `
+            <div class="custom-tooltip-text"></div>
+            <a class="custom-tooltip-link" href="#">
+                <i class="fas fa-circle-question"></i> Learn more
+            </a>
+        `;
+        document.body.appendChild(tooltip);
+
+        const textEl = tooltip.querySelector('.custom-tooltip-text');
+        const linkEl = tooltip.querySelector('.custom-tooltip-link');
+
+        let activeTrigger = null;
+        let hideTimer = null;
+
+        function positionTooltip(trigger) {
+            const rect = trigger.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+
+            let top = rect.top + window.scrollY - tooltipRect.height - 12;
+            let placement = 'top';
+
+            if (rect.top < tooltipRect.height + 20) {
+                top = rect.bottom + window.scrollY + 12;
+                placement = 'bottom';
+            }
+
+            let left = rect.left + window.scrollX + (rect.width / 2) - (tooltipRect.width / 2);
+            left = Math.max(12, Math.min(left, window.innerWidth - tooltipRect.width - 12));
+
+            tooltip.style.top = top + 'px';
+            tooltip.style.left = left + 'px';
+            tooltip.dataset.placement = placement;
+        }
+
+        function showTooltip(trigger) {
+            clearTimeout(hideTimer);
+            activeTrigger = trigger;
+
+            textEl.textContent = trigger.dataset.tooltip || '';
+            linkEl.href = trigger.dataset.learnMore || '#';
+
+            tooltip.classList.add('visible');
+            requestAnimationFrame(() => positionTooltip(trigger));
+        }
+
+        function hideTooltipSoon() {
+            hideTimer = setTimeout(() => {
+                tooltip.classList.remove('visible');
+                activeTrigger = null;
+            }, 200);
+        }
+
+        function hideTooltipNow() {
+            clearTimeout(hideTimer);
+            tooltip.classList.remove('visible');
+            activeTrigger = null;
+        }
+
+        tooltip.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+        tooltip.addEventListener('mouseleave', hideTooltipSoon);
+
+        document.querySelectorAll('.tooltip-trigger').forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => showTooltip(trigger));
+            trigger.addEventListener('mouseleave', hideTooltipSoon);
+            trigger.addEventListener('focus', () => showTooltip(trigger));
+            trigger.addEventListener('blur', hideTooltipNow);
+
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = trigger.dataset.learnMore;
+                if (url) window.location.href = url;
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (activeTrigger) positionTooltip(activeTrigger);
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+            if (activeTrigger) positionTooltip(activeTrigger);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') hideTooltipNow();
+        });
+    })();
+</script>
+</body>
+</html>

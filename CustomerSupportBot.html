@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ask Us - Tech Titans</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="CustomerSupportBot.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1><a href="crops.html" style="color: white; text-decoration: none;">YieldLogic</a></h1>
+      <nav>
+        <a href="crops.html"><i class="fas fa-house"></i>Home</a>
+        <div class="dropdown">
+          <a href="#"><i class="fas fa-search"></i>Search</a>
+          <div class="dropdown-menu">
+              <a href="info-page.html">Yield Calculator</a>
+              <a href="CustomerSupportBot.html">Yield Bot</a>
+              <a href="tips.html">Tips & Tricks</a>
+              <a href="why-we-ask.html">FAQ</a>
+          </div>
+        </div>
+        <a href="about.html"><i class="fas fa-info-circle"></i>About Us</a>
+        <div>
+                    <a href="login.html" class="nav-login"><i class="fas fa-user"></i>Login</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-container">
+      <div class="form-header">
+        <h2><i class="fas fa-robot" style="color: #004225; margin-right: 12px;"></i>Ask YieldBot</h2>
+        <p>Chat with our AI assistant about crop yield, revenue forecasting, and farm planning.</p>
+      </div>
+
+      <div class="bot-hint">
+        <i class="fas fa-lightbulb"></i>
+        Try asking: <em>"I farm 30 hectares of maize in Mpumalanga with loamy soil and drip irrigation. What yield can I expect?"</em>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FLOATING CHAT WIDGET ===== -->
+  <div id="chatWidget">
+    <button id="chatToggle" aria-label="Open chat">💬</button>
+
+    <div id="chatWindow">
+      <div class="chat-header">
+        <span><i class="fas fa-robot"></i> YieldLogic Assistant</span>
+        <button id="chatNew" title="Start over" aria-label="Start over">↺</button>
+      </div>
+
+      <div id="chatBox" class="chat-box"></div>
+
+      <div class="chat-input-area">
+        <input id="chatInput" placeholder="Ask about your farm…" autocomplete="off" />
+        <button id="chatSend">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <footer>
+    &copy; 2026 Tech Titans. All rights reserved.
+  </footer>
+
+  <script src="CustomerSupportBot.js"></script>
+</body>
+</html>

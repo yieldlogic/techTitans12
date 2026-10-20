@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Tech Titans</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <h1>YieldLogic</h1>
+           <nav>
+                    <div><a href="crops.html"><i class="fas fa-house"></i>Home</a></div>
+                    <div class="dropdown">
+                        <a href="#"><i class="fas fa-search"></i>Search</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="info-page.html">Yield Calculator</a></li>
+                            <li><a href="CustomerSupportBot.html">Yield Bot</a></li>
+                            <li><a href="tips.html">Tips & Tricks</a></li>
+                            <li><a href="why-we-ask.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                <div>
+                <a href="about.html"><i class="fas fa-info-circle"></i>About Us</a>
+                </div>
+                <div>
+                    <a href="login.html" class="nav-login"><i class="fas fa-user"></i>Login</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <section class="banner">
+        <h1 class="banner-text">WELCOME</h1>
+    </section>
+
+    <div class="banner-fade"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <main class="main-container">
+            <h2>HELLO, [USER]</h2>
+            <p>At YieldLogic, we believe every seed holds potential. Our mission is to 
+                unlock that potential by giving you real-time crop intelligence, accurate
+                yield forecasts, and actionable revenue insights so you can feed the world
+                while protecting your land for future generations.</p>
+
+            <p>Get started today and let's start growing together.</p>
+
+            <a href="info-page.html"><button class="pill-btn">Begin</button></a>
+    </main>
+
+    <footer>
+        &copy; 2026 Tech Titans. All rights reserved.
+    </footer>
+
+    <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const dropdown = document.querySelector(".dropdown > a"); 
+                    const menu = document.querySelector(".dropdown-menu");
+                    dropdown.addEventListener("click", (e) => {e.preventDefault();
+                        menu.style.display === "block"  ? "none" : "block";
+                    });
+
+                document.addEventListener("click", (e) => {if (!
+                    e.target.closest(".dropdown")) {menu.style.display =  "none";
+                    }
+                 });
+                });
+    </script>
+</body>
+</html>

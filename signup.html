@@ -1,0 +1,254 @@
+<html>
+<head>
+    <title>Tech Titans</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="login-page">
+    <header>
+        <div class="header-container">
+        <h1>YieldLogic</h1>
+            <nav>
+                    <div><a href="crops.html"><i class="fas fa-house"></i>Home</a></div>
+                    <div><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h2>Create Account</h2>
+                <p>Join YieldLogic and start growing smarter</p>
+            </div>
+
+            <div class="error-message" id="errorMsg">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="errorTxt">Something went wrong</span>
+            </div>
+
+            <form id="signupForm" onsubmit="return handleSignup(event)">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName"><i class="fas fa-user" style="margin-right: 8px;"></i>Full Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+
+                <!-- Farm Name -->
+                <div class="form-group">
+                    <label for="farmName"><i class="fas fa-tractor" style="margin-right: 8px;"></i>Farm Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="farmName" placeholder="e.g., Green Valley Farms" required>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope" style="margin-right: 8px;"></i>Email</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock" style="margin-right: 8px;"></i>Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="Create a password" required>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword"><i class="fas fa-lock" style="margin-right: 8px;"></i>Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+
+                <!-- Terms & Conditions -->
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="terms" required> I agree to the Terms & Conditions
+                    </label>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-user-plus" style="margin-right: 10px;"></i>Sign Up
+                </button>
+            </form>
+
+            <!-- Login link -->
+            <div class="register-link">
+                Already have an account? <a href="login.html">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Tech Titans. All rights reserved.
+    </footer>
+
+    <script>
+        // ===== Element references =====
+        const errorMsg = document.getElementById('errorMsg');
+        const errorTxt = document.getElementById('errorTxt');
+        const signupForm = document.getElementById('signupForm');
+
+        // All fields we validate (in the order we want to check them)
+        const fields = ['fullName', 'farmName', 'email', 'password', 'confirmPassword'];
+
+        // ===== Helper: show error + highlight + focus the bad field =====
+        function showFieldError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+
+            // Show the message banner
+            errorTxt.textContent = message;
+            errorMsg.classList.add('show');
+
+            // Highlight the field
+            if (field) {
+                field.classList.add('input-error');
+                field.focus();  // ← Directs the user to the problem field
+                field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            return false;
+        }
+
+        //Helper: clear a single field's error state
+        function clearFieldError(fieldId) {
+            const field = document.getElementById(fieldId);
+            if (field) field.classList.remove('input-error');
+        }
+
+        //Helper: clear ALL error states
+        function clearAllErrors() {
+            errorMsg.classList.remove('show');
+            fields.forEach(clearFieldError);
+            document.getElementById('terms').classList.remove('input-error');
+        }
+
+        // ===== Email regex (proper format check) =====
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // ===== Main signup handler =====
+        function handleSignup(event) {
+            event.preventDefault();
+            clearAllErrors();
+
+            // Grab values
+            const fullName = document.getElementById('fullName').value.trim();
+            const farmName = document.getElementById('farmName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+
+            // ===== 1. Check for empty fields (in order) =====
+            if (!fullName) {
+                return showFieldError('fullName', 'Please enter your full name');
+            }
+            if (!farmName) {
+                return showFieldError('farmName', 'Please enter your farm name');
+            }
+            if (!email) {
+                return showFieldError('email', 'Please enter your email address');
+            }
+            if (!password) {
+                return showFieldError('password', 'Please create a password');
+            }
+            if (!confirmPassword) {
+                return showFieldError('confirmPassword', 'Please confirm your password');
+            }
+
+            // ===== 2. Check for invalid values =====
+            if (!isValidEmail(email)) {
+                return showFieldError('email', 'Please enter a valid email address (e.g., you@example.com)');
+            }
+            if (password.length < 8) {
+                return showFieldError('password', 'Password must be at least 8 characters');
+            }
+            if (password !== confirmPassword) {
+                return showFieldError('confirmPassword', 'Passwords do not match');
+            }
+            if (!terms) {
+                const termsBox = document.getElementById('terms');
+                termsBox.classList.add('input-error');
+                errorTxt.textContent = 'Please accept the Terms & Conditions';
+                errorMsg.classList.add('show');
+                termsBox.focus();
+                termsBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+            }
+
+            // ===== 3. All good! =====
+            alert('Account created successfully! Redirecting to login...');
+            window.location.href = 'login.html';
+            return true;
+        }
+
+        // ===== Attach submit handler in JS (cleaner than onsubmit attribute) =====
+        signupForm.addEventListener('submit', handleSignup);
+
+        // ===== Clear each field's error as soon as the user types in it =====
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', function () {
+                    clearFieldError(id);
+                    // Hide banner only if no other field still has an error
+                    if (!document.querySelector('.input-error')) {
+                        errorMsg.classList.remove('show');
+                    }
+                });
+            }
+        });
+
+        // ===== Clear terms error when checkbox changes =====
+        document.getElementById('terms').addEventListener('change', function () {
+            this.classList.remove('input-error');
+            if (!document.querySelector('.input-error')) {
+                errorMsg.classList.remove('show');
+            }
+        });
+
+        // ===== Password show/hide toggles =====
+        function addPasswordToggle(inputId) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+
+            const toggle = document.createElement('i');
+            toggle.className = 'fas fa-eye';
+            toggle.style.cssText = `
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                color: #999;
+                font-size: 18px;
+                z-index: 2;
+            `;
+            input.parentElement.appendChild(toggle);
+
+            toggle.addEventListener('click', function () {
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+
+        addPasswordToggle('password');
+        addPasswordToggle('confirmPassword');
+    </script>
+</body>
+</html>

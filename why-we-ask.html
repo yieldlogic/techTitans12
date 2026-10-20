@@ -1,0 +1,383 @@
+<html>
+<head>
+    <title>Tech Titans</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <h1>YieldLogic</h1>
+           <nav>
+                    <div><a href="crops.html"><i class="fas fa-house"></i>Home</a></div>
+                    <div class="dropdown">
+                        <a href="#"><i class="fas fa-search"></i>Search</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="info-page.html">Yield Calculator</a></li>
+                            <li><a href="CustomerSupportBot.html">Yield Bot</a></li>
+                            <li><a href="tips.html">Tips & Tricks</a></li>
+                            <li><a href="why-we-ask.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                <div>
+                <a href="about.html"><i class="fas fa-info-circle"></i>About Us</a>
+                </div>
+                <div>
+                    <a href="login.html" class="nav-login"><i class="fas fa-user"></i>Login</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="banner">
+        <div class="banner-text">WHY WE ASK</div>
+    </section>
+    <div class="banner-fade"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Intro -->
+        <section class="tips-intro">
+            <h2>Every Question Has a Purpose</h2>
+            <p>
+                Our Yield Calculator asks for specific details about your farm — not to make things complicated, 
+                but because <strong>each answer changes your results</strong>. Here's exactly why we ask, 
+                and how each piece of information helps you get a more accurate estimate.
+            </p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 1. LOCATION -->
+        <!-- ============================================================ -->
+        <article class="explain-card" id="location">
+            <div class="explain-icon">
+                <i class="fas fa-map-pin"></i>
+            </div>
+            <div class="explain-content">
+                <h3>Why We Ask: Where Is Your Farm Located?</h3>
+                <p class="explain-tagline">"Two farms 50 km apart can have completely different seasons."</p>
+
+                <h4>What location tells us:</h4>
+                <ul>
+                    <li><strong>Climate zone</strong> — Average temperature, frost dates, and growing season length</li>
+                    <li><strong>Rainfall patterns</strong> — How much rain you typically get, and when</li>
+                    <li><strong>Soil region</strong> — What types of soil are common in your area</li>
+                    <li><strong>Local pests & diseases</strong> — Some regions have specific pest pressures</li>
+                </ul>
+
+                <h4>How it affects your results:</h4>
+                <p>
+                    A maize farm in <strong>Mpumalanga</strong> (high rainfall, warm) will produce very differently 
+                    from one in the <strong>Free State</strong> (drier, cooler). By knowing your location, we 
+                    adjust your expected yield for your actual climate — not a national average.
+                </p>
+
+                <div class="explain-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Example:</strong> A farmer in a high-rainfall area may not need irrigation. 
+                    A farmer in a dry region almost certainly does. Same crop, different advice.
+                </div>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 2. SOIL TYPE -->
+        <!-- ============================================================ -->
+        <article class="explain-card" id="soil-type">
+            <div class="explain-icon">
+                <i class="fas fa-mountain"></i>
+            </div>
+            <div class="explain-content">
+                <h3>Why We Ask: What Is Your Soil Type?</h3>
+                <p class="explain-tagline">"Soil is the foundation — everything grows from it."</p>
+
+                <h4>What soil type tells us:</h4>
+                <ul>
+                    <li><strong>Water retention</strong> — How well your soil holds moisture between rains</li>
+                    <li><strong>Nutrient availability</strong> — How easily roots can access food</li>
+                    <li><strong>Drainage</strong> — Whether water logs or flows away</li>
+                    <li><strong>Root growth</strong> — Some soils are easy for roots to spread in; others are not</li>
+                </ul>
+
+                <h4>Quick guide to soil types:</h4>
+                <div class="soil-grid">
+                    <div class="soil-item soil-best">
+                        <h5><i class="fas fa-star"></i> Loamy</h5>
+                        <p>The ideal mix of sand, silt, and clay. Great drainage, holds nutrients. <strong>Best yield potential.</strong></p>
+                    </div>
+                    <div class="soil-item soil-good">
+                        <h5>Clay Loam / Silty</h5>
+                        <p>Very good for most crops. Holds water and nutrients well. May drain slowly.</p>
+                    </div>
+                    <div class="soil-item soil-mid">
+                        <h5>Clay</h5>
+                        <p>Holds water and nutrients, but can become waterlogged and hard to work.</p>
+                    </div>
+                    <div class="soil-item soil-poor">
+                        <h5>Sandy Loam / Sandy</h5>
+                        <p>Drains fast, loses water and nutrients quickly. Needs more irrigation.</p>
+                    </div>
+                    <div class="soil-item soil-worst">
+                        <h5>Peaty</h5>
+                        <p>Acidic and variable. Great for some crops, poor for others.</p>
+                    </div>
+                </div>
+
+                <div class="explain-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Example:</strong> The same maize seed planted in <em>loamy soil</em> can yield up to 
+                    <strong>35% more</strong> than in <em>sandy soil</em> — with the same water and fertilizer.
+                </div>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 3. IRRIGATION -->
+        <!-- ============================================================ -->
+        <article class="explain-card" id="irrigation">
+            <div class="explain-icon">
+                <i class="fas fa-water"></i>
+            </div>
+            <div class="explain-content">
+                <h3>Why We Ask: Are You Using Irrigation?</h3>
+                <p class="explain-tagline">"Water is the single biggest factor in yield — after soil."</p>
+
+                <h4>What irrigation tells us:</h4>
+                <ul>
+                    <li><strong>Water security</strong> — Can you keep crops hydrated during dry spells?</li>
+                    <li><strong>Consistency</strong> — Irrigated farms have more predictable yields than rain-fed ones</li>
+                    <li><strong>Efficiency</strong> — Different irrigation types deliver water very differently</li>
+                    <li><strong>Cost</strong> — Irrigation costs money, so we factor that into your profit</li>
+                </ul>
+
+                <h4>Irrigation types and their impact:</h4>
+                <table class="explain-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Efficiency</th>
+                            <th>Yield Boost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Drip</strong> 💧</td>
+                            <td>Best — water goes straight to roots</td>
+                            <td>+25%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sprinkler / Pivot</strong></td>
+                            <td>Good — covers evenly</td>
+                            <td>+18%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flood / Furrow</strong></td>
+                            <td>Fair — lots of evaporation</td>
+                            <td>+10%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rain-fed only</strong></td>
+                            <td>Depends on weather</td>
+                            <td>Baseline</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="explain-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Example:</strong> Two maize farmers with identical soil and rainfall. 
+                    The one with drip irrigation can expect <strong>25% more yield</strong> — because 
+                    water goes where roots actually need it, not everywhere else.
+                </div>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 4. PESTS -->
+        <!-- ============================================================ -->
+        <article class="explain-card" id="pests">
+            <div class="explain-icon">
+                <i class="fas fa-bug"></i>
+            </div>
+            <div class="explain-content">
+                <h3>Why We Ask: Have You Noticed Any Pests?</h3>
+                <p class="explain-tagline">"Pests don't just damage crops — they damage your income."</p>
+
+                <h4>What pest information tells us:</h4>
+                <ul>
+                    <li><strong>Stress on the crop</strong> — Even mild pest pressure reduces yield</li>
+                    <li><strong>Urgency</strong> — Severe pests need immediate action, not "wait and see"</li>
+                    <li><strong>Hidden losses</strong> — Some pests reduce quality, not just quantity</li>
+                    <li><strong>Cost impact</strong> — Pesticide treatment adds cost; ignoring pests costs yield</li>
+                </ul>
+
+                <h4>How we read your answer:</h4>
+                <table class="explain-table">
+                    <thead>
+                        <tr>
+                            <th>What You Report</th>
+                            <th>Yield Impact</th>
+                            <th>What It Means</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>None / Nothing</strong></td>
+                            <td>0% loss</td>
+                            <td>Ideal — keep monitoring weekly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mild / Few / Minor</strong></td>
+                            <td>−8% loss</td>
+                            <td>Treat early — still manageable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Moderate / Some</strong></td>
+                            <td>−18% loss</td>
+                            <td>Act now — every week counts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Severe / Infestation</strong></td>
+                            <td>−30% loss</td>
+                            <td>Immediate action required</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="explain-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Example:</strong> An untreated aphid infestation on wheat can reduce yield 
+                    by up to <strong>30%</strong>. Spotting it early and treating it costs far less than 
+                    losing a third of your harvest.
+                </div>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 5. HECTARE -->
+        <!-- ============================================================ -->
+        <article class="explain-card" id="hectare">
+            <div class="explain-icon">
+                <i class="fas fa-arrows-alt-h"></i>
+            </div>
+            <div class="explain-content">
+                <h3>What Is a Hectare?</h3>
+                <p class="explain-tagline">"A hectare is just a way of measuring land — like a kilogram measures weight."</p>
+
+                <h4>The simple definition:</h4>
+                <p>
+                    A <strong>hectare (ha)</strong> is a unit of land area equal to 
+                    <strong>10,000 square metres</strong> — that's a square that's <strong>100 metres × 100 metres</strong>.
+                </p>
+
+                <div class="hectare-visual">
+                    <div class="hectare-square">
+                        <span>100 m</span>
+                        <span class="hectare-label">1 HECTARE</span>
+                        <span>100 m</span>
+                    </div>
+                </div>
+
+                <h4>Rough comparisons (useful if you think in other units):</h4>
+                <ul>
+                    <li><strong>1 hectare</strong> ≈ 2.47 acres</li>
+                    <li><strong>1 hectare</strong> ≈ 1.4 soccer fields</li>
+                    <li><strong>1 hectare</strong> ≈ 100 parking spaces</li>
+                    <li><strong>100 hectares</strong> ≈ 1 square kilometre</li>
+                </ul>
+
+                <h4>Why it matters for your estimate:</h4>
+                <p>
+                    Yield is measured <strong>per hectare</strong>. So if you know your field is 
+                    <strong>5 hectares</strong>, and your expected yield is <strong>7,000 kg/ha</strong>, 
+                    then your total harvest is:
+                </p>
+                <div class="calc-box">
+                    5 ha × 7,000 kg/ha = <strong>35,000 kg</strong> (35 tons)
+                </div>
+
+                <h4>How to measure your land if you don't know:</h4>
+                <ul>
+                    <li>Use a <strong>GPS app</strong> on your phone (many are free)</li>
+                    <li>Check your <strong>title deed or land survey</strong> documents</li>
+                    <li>Ask your local <strong>agricultural extension officer</strong></li>
+                    <li>Rough estimate: pace out the length and width, multiply them, then divide by 10,000</li>
+                </ul>
+
+                <div class="explain-example">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Tip:</strong> If you're not sure, it's better to give us an approximate number 
+                    than to skip the field. You can always update it later as your records improve.
+                </div>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- SUMMARY CARD -->
+        <!-- ============================================================ -->
+        <section class="summary-card">
+            <h2>Quick Summary</h2>
+            <p>Here's why each field matters, in one line each:</p>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Location</h4>
+                    <p>Adjusts yield for your <strong>climate and rainfall</strong></p>
+                </div>
+                <div class="summary-item">
+                    <i class="fas fa-mountain"></i>
+                    <h4>Soil Type</h4>
+                    <p>Adjusts yield for <strong>water and nutrient retention</strong></p>
+                </div>
+                <div class="summary-item">
+                    <i class="fas fa-water"></i>
+                    <h4>Irrigation</h4>
+                    <p>Adjusts yield for <strong>water security and consistency</strong></p>
+                </div>
+                <div class="summary-item">
+                    <i class="fas fa-bug"></i>
+                    <h4>Pests</h4>
+                    <p>Adjusts yield for <strong>crop stress and damage</strong></p>
+                </div>
+                <div class="summary-item">
+                    <i class="fas fa-arrows-alt-h"></i>
+                    <h4>Hectares</h4>
+                    <p>Scales your result to your <strong>actual farm size</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="tips-cta">
+            <h2>Ready to Try the Calculator?</h2>
+            <p>Now that you know why we ask, head over and get your first estimate.</p>
+            <a href="info-page.html"><button class="pill-btn">Open Yield Calculator</button></a>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Tech Titans. All rights reserved.
+    </footer>
+
+    <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const dropdown = document.querySelector(".dropdown > a"); 
+                    const menu = document.querySelector(".dropdown-menu");
+                    dropdown.addEventListener("click", (e) => {e.preventDefault();
+                        menu.style.display === "block"  ? "none" : "block";
+                    });
+
+                document.addEventListener("click", (e) => {if (!
+                    e.target.closest(".dropdown")) {menu.style.display =  "none";
+                    }
+                 });
+                });
+    </script>
+</body>
+</html>
